@@ -15,8 +15,10 @@ fun main() {
     // Now we've moved the fucking lambda expression outside the parameters due to it being the last parameter. FoR rEaDaBiLiTy MY ASS.
     val treatFunction = trickOrTreat(false) { "$it quarters" }
     val trickFunction = trickOrTreat(true, null)
-    // Calling the two variables above
-    treatFunction()
+    // Calling the two variables above, now in a repeat function
+    repeat(4) {
+        treatFunction()
+    }
     trickFunction()
 }
 
