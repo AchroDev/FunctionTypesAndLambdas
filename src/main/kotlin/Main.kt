@@ -1,9 +1,9 @@
 // Entry point
 fun main() {
-    // Defining the "coin" lambda expression
-    val coins: (Int) -> String = { quantity ->
-        "$quantity quarters"
-    }
+//    // Defining the "coin" lambda expression, updated to omit the parameter name, symbol, and update the string
+//    val coins: (Int) -> String = {
+//        "$it quarters"
+//    }
 
 //    // Defining the "cupcake" lambda expression
 //    val cupcake: (Int) -> String = { //quantity -> (not used, so it's being omitted)
@@ -11,7 +11,9 @@ fun main() {
 //    }
 
     // Creating the two variables needed to store the return values of the "trickOrTreat" function.
-    val treatFunction = trickOrTreat(false, coins)
+    // Omitted the "coins" variable and moved the lambda expression directly into the parameters, Why? No fucking clue.
+    // Now we've moved the fucking lambda expression outside the parameters due to it being the last parameter. FoR rEaDaBiLiTy MY ASS.
+    val treatFunction = trickOrTreat(false) { "$it quarters" }
     val trickFunction = trickOrTreat(true, null)
     // Calling the two variables above
     treatFunction()
