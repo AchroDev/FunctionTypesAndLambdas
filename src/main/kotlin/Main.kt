@@ -9,6 +9,8 @@ fun main() {
     trick()
     // Displaying the variable now can be called as if it were a function.
     trickFunction()
+    //Calling the 'treat' function showing that is works the same as "trick" due to type inference.
+    treat()
 }
 
 // Example "trick function"
@@ -21,3 +23,7 @@ val trick = {
     println("No treats!")
 }
 
+// Second example function to display explicitly specifying the functions data type.
+val treat: () -> Unit = {
+    println("Have a treat!")
+}
