@@ -1,8 +1,18 @@
 // Entry point
 fun main() {
+    // Defining the "coin" lambda expression
+    val coins: (Int) -> String = { quantity ->
+        "$quantity quarters"
+    }
+
+//    // Defining the "cupcake" lambda expression
+//    val cupcake: (Int) -> String = { //quantity -> (not used, so it's being omitted)
+//        "Have a cupcake!"
+//    }
+
     // Creating the two variables needed to store the return values of the "trickOrTreat" function.
-    val treatFunction = trickOrTreat(false)
-    val trickFunction = trickOrTreat(true)
+    val treatFunction = trickOrTreat(false, coins)
+    val trickFunction = trickOrTreat(true, null)
     // Calling the two variables above
     treatFunction()
     trickFunction()
@@ -10,10 +20,15 @@ fun main() {
 
 // Define a "trickOrTreat" function and add an if statement that returns the "trick()" function if "isTrick" is true
 // and returns the "treat()" function if "isTrick" is false.
-fun trickOrTreat(isTrick: Boolean): () -> Unit {
+// Added the "extraTreat" function type to the parameters
+fun trickOrTreat(isTrick: Boolean, extraTreat: ((Int) -> String)?): () -> Unit {
     if (isTrick) {
         return (trick)
     } else {
+        // Added if statement to only call the function if it isn't null
+        if (extraTreat != null) {
+            println(extraTreat(5))
+        }
         return (treat)
     }
 }
